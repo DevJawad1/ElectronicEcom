@@ -1,0 +1,27 @@
+.bann{
+    height: 40vh;
+    /* border:2px solid red; */
+    background-image: radial-gradient(#9bec00 45%, #588600 55%);
+}
+.ban1{
+    width: 370px;
+    z-index: 8;
+    margin-top: 80px;
+    margin-left: -170px;
+    position: absolute;
+
+}
+.ban2{
+    width: 400px;
+    z-index: 10;
+    margin-top: 30px;
+    margin-left: 20px;
+    position: absolute;
+}
+.ban3{
+    width: 250px;
+    z-index: 6;
+    margin-top: 0px;
+    margin-left: 260px;
+    position: absolute;
+}
