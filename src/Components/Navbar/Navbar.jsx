@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import logo from '../Assets/Img/Logo (3).png'
 
-
+import {Link} from 'react-router-dom'
 export const Navbar = () => {
 
 

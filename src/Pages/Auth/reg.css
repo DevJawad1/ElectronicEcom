@@ -1,0 +1,11 @@
+.login-img-box{
+    background-image: url('../../Components/Assets/Img/Images3.png');
+    background-size: 350px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.reg-form-div input{
+    border: 1px solid whitesmoke;
+    height: 40px;
+}
