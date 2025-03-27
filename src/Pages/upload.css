@@ -1,0 +1,9 @@
+.upload-box .inp, .imgs{
+    background-color:#F8F9FB;
+    border:2px solid #E8EBF1
+}
+.upload-box input{
+    height: 65px;
+    border:1px solid #E8EBF1 !important;
+
+}

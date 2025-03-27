@@ -25,18 +25,17 @@ export const Navbar = () => {
             </a>
             
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <input class="form-control me-2 w-ful" type="search" placeholder="Search" aria-label="Search" />
-              </ul>
-              <form class="d-flex" role="search">
-                
-                <button class="btn btn-outline-success" type="submit">Search</button>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 bg-white rounded w-ful border">
+              <input class="w-100 bg-transparent px-2" style={{outline:"none", border:"none"}} type="search" placeholder="What are you searching for?" aria-label="Search" />
+              <form class="d-flex m-1" role="search">
+                <button class="btn text-white" style={{backgroundColor:"#0DC029"}} type="submit">Search</button>
               </form>
+              </ul>
             </div>
           </div>
         </nav>
       </div>
-      <div className='headerThree'>
+      <div className='headerThree'> 
       <nav class="navbar navbar-expand-lg bg-light">
           <div class="container-fluid  bro px-3">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
