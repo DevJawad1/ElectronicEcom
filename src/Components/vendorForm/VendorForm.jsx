@@ -96,7 +96,7 @@ const VendorForm = () => {
             <img src={logo} alt="logo" className="" />
           </div>
           <form className="form-div mt-4 p-2" onSubmit={handleSubmit}>
-            <div className="d-flex flex-wrap">
+            <div className="d-md-flex flex-wrap">
               {/* Full Name */}
               <div className="col-md-6 px-md-3">
                 <span>Full Name*</span><br />
@@ -221,6 +221,8 @@ const VendorForm = () => {
               <small className="text-success">{message}</small>
             </div>
           </form>
+
+        
         </div>
   )
 }

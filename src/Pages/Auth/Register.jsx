@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Navbar } from "../../Components/Navbar/Navbar";
+import { Footer } from "../../Components/Footer/Footer";
 import "./reg.css";
 import VendorForm from "../../Components/vendorForm/VendorForm";
 
@@ -24,6 +25,8 @@ const Register = () => {
         <VendorForm/>
         
       </div>
+
+      <Footer/>
     </div>
   );
 };

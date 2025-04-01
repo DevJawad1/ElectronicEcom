@@ -21,7 +21,7 @@ export const Navbar = () => {
         <nav class="navbar navbar-expand-lg bg-light">
           <div class="container-fluid">
             <a class="navbar-brand" href="#">
-            <img className="w-50 mx-5" src={logo} alt="" />
+            <img className="w-50 mx-md-5 mx-2" src={logo} alt="" />
             </a>
             
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -37,7 +37,7 @@ export const Navbar = () => {
       </div>
       <div className='headerThree'> 
       <nav class="navbar navbar-expand-lg bg-light">
-          <div class="container-fluid  bro px-3">
+          <div class="container-fluid   border px-3">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
