@@ -70,7 +70,7 @@ const Login = () => {
               <span className="text-secondary fw-semibold" style={{ fontSize: "14px" }}>Email Address*</span>
               <input type="text" name="email"
                 className="rounded w-100 mt-1 px-2"
-                style={{ height: "45px", border: "1px solid #E9E9E9", fontSize: "13px" }}
+                style={{ height: "45px", border: "1px solid #E9E9E9", fontSize: "13.1px" }}
                 placeholder="Enter your email address"
                 onChange={handleChange}
               />
