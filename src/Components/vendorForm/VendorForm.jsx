@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react'
 
 import axios from "axios";
 import logo from "../Assets/Img/Logo (3).png";
+import { useNavigate } from 'react-router-dom';
 const VendorForm = () => {
+  const navigate = useNavigate();
     const [formData, setFormData] = useState({
         fullName: "",
         businessName: "",
@@ -13,6 +15,10 @@ const VendorForm = () => {
         postCode: "",
         country: "",
         region: "",
+        password: "",
+        rate:0,
+        verified:false,
+        userImg:''
       });
     
       const [errors, setErrors] = useState({});
@@ -67,12 +73,16 @@ const VendorForm = () => {
     
       // HANDLE FORM SUBMISSION
       const handleSubmit = async (e) => {
+        console.log(formData)
         e.preventDefault();
         if (!validateForm()) return;
     
         try {
-          const response = await axios.post("http://localhost:5000/register", formData);
+          const response = await axios.post("http://localhost:2500/user/register", formData);
           setMessage(response.data.message);
+          if(response.data.status){
+            navigate("/login");
+          }
         } catch (error) {
           setMessage("Registration failed. Please try again.");
         }
@@ -185,6 +195,16 @@ const VendorForm = () => {
                   className="rounded w-100 mt-1 px-2" 
                   style={{ height: "37px", border: "1px solid #E9E9E9", fontSize: "13px" }} 
                   placeholder="Enter your Post Code" 
+                  onChange={handleChange}
+                />
+                <small className="text-danger">{errors.region}</small>
+              </div>
+              <div className="col-md-6 px-md-3 mt-md-4">
+                <span>Password*</span><br />
+                <input type="text" name="password" 
+                  className="rounded w-100 mt-1 px-2" 
+                  style={{ height: "37px", border: "1px solid #E9E9E9", fontSize: "13px" }} 
+                  placeholder="Enter your Password" 
                   onChange={handleChange}
                 />
                 <small className="text-danger">{errors.region}</small>

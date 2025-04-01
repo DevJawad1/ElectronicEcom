@@ -1,0 +1,62 @@
+/* Sidebar styles */
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebar-closed {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar-open {
+    transform: translateX(0);
+  }
+  
+  /* Main content adjustment */
+  .main-content {
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+  }
+  
+  /* On larger screens, keep sidebar visible and adjust main content */
+  @media (min-width: 992px) {
+    .sidebar {
+      position: sticky;
+      top: 0;
+      transform: translateX(0);
+    }
+  
+    .sidebar-closed {
+      transform: translateX(0);
+      width: 0;
+      overflow: hidden;
+      padding: 0;
+    }
+  
+    .main-content {
+      margin-left: 280px;
+    }
+  
+    .main-content.sidebar-closed {
+      margin-left: 0;
+    }
+  }
+  
+  /* Active nav link */
+  .nav-link.active {
+    background-color: rgba(25, 135, 84, 0.1);
+    border-radius: 6px;
+    font-weight: 500;
+  }
+  
+  /* Card styling */
+  .rounded-4 {
+    border-radius: 1rem !important;
+  }
+  
+  

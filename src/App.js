@@ -5,6 +5,7 @@ import Home from './Pages/Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Shop from './Pages/Shop';
 import UploadProduct from './Pages/UploadProduct';
+import Profile from './Pages/profile/Profile';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/upload" element={<UploadProduct />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </>
     </Router>

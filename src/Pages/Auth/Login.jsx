@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Navbar } from "../../Components/Navbar/Navbar";
 import { Footer } from "../../Components/Footer/Footer";
+import { useNavigate } from "react-router-dom";
 import "./reg.css";
 import {Link} from 'react-router-dom'
 const Login = () => {
+  const navigate= useNavigate()
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -39,8 +41,13 @@ const Login = () => {
     if (!validateForm()) return;
 
     try {
-      const response = await axios.post("http://localhost:5000/login", formData);
+      const response = await axios.post("http://localhost:2500/user/login", formData);
       setMessage(response.data.message);
+      if(response.data.status){
+        localStorage.setItem('ElectroUserID', response.data.user)
+        localStorage.setItem('ElectroUserToken', response.data.token)
+        navigate('/profile')  
+      }
     } catch (error) {
       setMessage("Login failed. Please try again.");
     }
@@ -49,13 +56,13 @@ const Login = () => {
   return (
     <div>
       <Navbar />
-      <div className="col-7 mx-auto mt-5">
+      <div className="col-md-7 mx-auto mt-5">
         <h5 className="text-center">Login</h5>
         <p className="text-center">
           Get access to your Orders, Wishlist and <br /> Recommendations.
         </p>
         <div className="d-flex">
-          <div className="form-box col-md-6 rounded p-4" style={{ border: "1px solid #E9E9E9" }}>
+          <div className="form-box col-md-6 mx-auto col-11 rounded p-4" style={{ border: "1px solid #E9E9E9" }}>
             <form onSubmit={handleSubmit}>
               <span className="text-secondary fw-semibold" style={{ fontSize: "14px" }}>Email Address*</span>
               <input type="text" name="email"
@@ -88,7 +95,7 @@ const Login = () => {
               <small className="text-success">{message}</small>
             </form>
           </div>
-          <div className="login-img-box col-md-6 "></div>
+          <div className="login-img-box col-md-6 d-md-block d-none"></div>
         </div>
       </div>
       <Footer />
