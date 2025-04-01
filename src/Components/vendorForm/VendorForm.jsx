@@ -80,7 +80,7 @@ const VendorForm = () => {
         if (!validateForm()) return;
     
         try {
-          const response = await axios.post("http://localhost:2500/user/register", formData);
+          const response = await axios.post("https://electrobackend-dbup.onrender.com/user/register", formData);
           setloading(false)
           setMessage(response.data.message);
           if(response.data.status){

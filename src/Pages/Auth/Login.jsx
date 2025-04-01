@@ -43,7 +43,7 @@ const Login = () => {
     if (!validateForm()) return;
 
     try {
-      const response = await axios.post("https://electronics-ecom-back-hyhcgju53-bug-solution.vercel.app/user/login", formData);
+      const response = await axios.post("https://electrobackend-dbup.onrender.com/user/login", formData);
       setMessage(response.data.message);
       if(response.data.status){
         localStorage.setItem('ElectroUserID', response.data.user)

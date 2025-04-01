@@ -22,7 +22,7 @@ export default function Profile() {
     const userProfile= async()=>{
      try {
         console.log(userId)
-        const response = await axios.post('http://localhost:2500/user/userprofile', {id:userId})
+        const response = await axios.post('https://electrobackend-dbup.onrender.com/user/userprofile', {id:userId})
         console.log(response)
         setuserDetails(response.data.result)
      } catch (error) {
