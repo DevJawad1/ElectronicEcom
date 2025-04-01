@@ -12,6 +12,7 @@ const Login = () => {
     password: "",
   });
 
+  const [loading, setloading] = useState(false)
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState("");
 
@@ -37,17 +38,19 @@ const Login = () => {
 
   // HANDLE FORM SUBMISSION
   const handleSubmit = async (e) => {
+    setloading(true)
     e.preventDefault();
     if (!validateForm()) return;
 
     try {
-      const response = await axios.post("http://localhost:2500/user/login", formData);
+      const response = await axios.post("https://electronics-ecom-back-hyhcgju53-bug-solution.vercel.app/user/login", formData);
       setMessage(response.data.message);
       if(response.data.status){
         localStorage.setItem('ElectroUserID', response.data.user)
         localStorage.setItem('ElectroUserToken', response.data.token)
         navigate('/profile')  
       }
+      setloading(false)
     } catch (error) {
       setMessage("Login failed. Please try again.");
     }
@@ -90,7 +93,7 @@ const Login = () => {
               </div>
 
               <button className="w-100 btn text-white" style={{ backgroundColor: "#0DC029" }} type="submit">
-                Log In
+              {loading?'Loading . . .':'Log In'}
               </button>
               <small className="text-success">{message}</small>
             </form>

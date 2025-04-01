@@ -5,6 +5,7 @@ import logo from "../Assets/Img/Logo (3).png";
 import { useNavigate } from 'react-router-dom';
 const VendorForm = () => {
   const navigate = useNavigate();
+  const [loading, setloading] = useState(false)
     const [formData, setFormData] = useState({
         fullName: "",
         businessName: "",
@@ -73,12 +74,14 @@ const VendorForm = () => {
     
       // HANDLE FORM SUBMISSION
       const handleSubmit = async (e) => {
+        setloading(true)
         console.log(formData)
         e.preventDefault();
         if (!validateForm()) return;
     
         try {
           const response = await axios.post("http://localhost:2500/user/register", formData);
+          setloading(false)
           setMessage(response.data.message);
           if(response.data.status){
             navigate("/login");
@@ -213,7 +216,7 @@ const VendorForm = () => {
 
             <div className="px-3 mt-3">
               <button className="w-100 btn text-white" style={{ backgroundColor: "#0DC029" }} type="submit">
-                Sign Up
+                {loading?'Loading . . .':'Sign Up'}
               </button>
               <small className="text-success">{message}</small>
             </div>
