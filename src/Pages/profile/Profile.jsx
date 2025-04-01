@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react"
 import { Menu, X, Home, ShoppingBag, ClipboardList, Upload, ChevronDown } from "lucide-react"
 import { Navbar } from "../../Components/Navbar/Navbar"
+// import { Loader } from "../../Components/Loader/Loader"
 import noImg from '../../Components/Assets/Img/noImg.JPG'
 import axios from "axios";
+import FullPageLoader from "../../Components/Loader/FullLoader"
 
 export default function Profile() {
     // Simple toggle state
@@ -34,6 +36,7 @@ export default function Profile() {
     return (
         <div className="">
             <Navbar/>
+            {!userDetails && <FullPageLoader msg={'Getting your Information'}/>}
             <div className="d-flex">
                 {/* Sidebar */}
                 <div
@@ -142,15 +145,17 @@ export default function Profile() {
                                     <div className="col-md-5">
                                         <div className="mb-4">
                                             <div className="text-secondary">Name</div>
-                                            <div className="fs-5 fw-bold" style={{textTransform:"uppercase"}}>ADEKUNLE ONANUGA AJAYI</div>
+                                            <div className="fs-5 fw-bold" style={{textTransform:"uppercase"}}>{userDetails.fullName || 'Loading...'}</div>
                                         </div>
                                         <div className="mb-4">
                                             <div className="text-secondary">Business Name</div>
-                                            <div className="fs-5 fw-bold">Eminent Ventures</div>
+                                            <div className="fs-5 fw-bold" style={{textTransform:"uppercase"}}>{userDetails.businessName || 'Loading...'}</div>
                                         </div>
                                         <div>
                                             <div className="text-secondary">Office Address</div>
-                                            <div className="fs-5 fw-bold">No. 16, Tanke Complex, Ogbomosho</div>
+                                            <div className="fs-5 fw-bold" style={{textTransform:"uppercase"}}>{userDetails.address || 'Loading...'}</div>
+
+                                            {/* <div className="fs-5 fw-bold">No. 16, Tanke Complex, Ogbomosho</div> */}
                                         </div>
                                     </div>
                                     <div className="col-md-4">
@@ -204,7 +209,7 @@ export default function Profile() {
                                         </div>
                                         <div className="mb-3">
                                             <div className="text-secondary">Trades Success</div>
-                                            <div className="fs-4 fw-bold">98.9%</div>
+                                            <div className="fs-4 fw-bold">{userDetails.rate||0}%</div>
                                         </div>
                                         <div>
                                             <div className="text-secondary">Date Joined</div>
