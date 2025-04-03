@@ -1,10 +1,10 @@
 import React from 'react'
-import hero from '../Assets/Img/Images3.png'
+import hero from '../Assets/Img/landingImg.JPG'
 import './Landing.css'
-
+import { Link } from 'react-router-dom'
 export const Landing = () => {
   return (
-    <div className='hero'>
+    <div className='hero' style={{backgroundColor:"#F7F8F5"}}>
     <div className='row'>
       <div className='col-10 col-md-6 px-3'>
         <div className='m-3 p-3'>
@@ -15,8 +15,10 @@ export const Landing = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere expedita odio provident blanditiis nam maxime, iusto ducimus mollitia reprehenderit dignissimos saepe sunt eos. Totam repudiandae quaerat odio dolorum praesentium dolor.
           </span>
           <div className=''>
-          <button className='btn btn-info my-5 mx-2 w-25'> Get Started</button>
-          <button className='btn btn-info my-5 mx-2 w-50'> Get Started</button>
+          <button className='btn my-5 mx-2 w-25 app-theme' style={{backgroundColor:"#0DC029", height:"50px"}}> 
+            <Link to={'/register'} className='text-decoration-none text-white'>Get Started</Link>
+          </button>
+          <button className='btn my-5 mx-2 w-50 linear-color text-white fw-semibold'>Check for Vendors in your Area</button>
           </div>
         </div>
       </div>

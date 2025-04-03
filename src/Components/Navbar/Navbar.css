@@ -1,15 +1,100 @@
-*{
-  padding: 0;
+/* General Navbar Styling */
+.header-one{
+  background-color: #D3F4D8;
+  height: 45px;
+  width: 100vw;
 }
-.headerOne{
-    height: 30px;
-    background-color: #0dc029;
-    
+.navbar {
+  padding: 10px 0;
 }
-.bro{
-    width: 800px !important;
-    
+
+.logo {
+  height: 40px;
 }
-.w-ful{
-    width: 800px !important;
+
+.brand-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0dc029;
+  margin-left: 10px;
 }
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  max-width: 100%;
+}
+
+.search-input {
+  border-radius: 20px 0 0 20px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+}
+
+.search-btn {
+  background-color: #0dc029;
+  color: white;
+  border-radius: 0 20px 20px 0;
+  border: none;
+}
+
+/* Navigation Items */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.nav-link:hover {
+  color: #0dc029;
+}
+
+/* Icons Section */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-icon span {
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.nav-icon b {
+  color: #0dc029;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .search-bar {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .nav-icons {
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar-toggler {
+    border: none;
+  }
+}
+

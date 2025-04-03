@@ -88,7 +88,9 @@ const Login = () => {
               </div>
 
               <div className="d-flex justify-content-between mt-3">
-                <p className="text-secondary" style={{ fontSize: "14px" }}>Create Account?</p>
+                <p className="text-secondary" style={{ fontSize: "14px" }}>
+                  <Link to={'/register'} className="text-decoration-none text-secondary">Create Account?</Link>
+                  </p>
                 <p className="text-secondary" style={{ fontSize: "14px" }}>Forgot Password?</p>
               </div>
 

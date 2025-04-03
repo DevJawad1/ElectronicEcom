@@ -9,3 +9,7 @@
 .heroText{
     /* font-size: 100px !important; */
 }
+.linear-color{
+    background: linear-gradient(to right, #85C905, #466904);
+    height: 50px;
+}

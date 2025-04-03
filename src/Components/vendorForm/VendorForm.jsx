@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react'
 import axios from "axios";
 import logo from "../Assets/Img/Logo (3).png";
 import { useNavigate } from 'react-router-dom';
+import {Link} from 'react-router-dom'
 const VendorForm = () => {
   const navigate = useNavigate();
   const [loading, setloading] = useState(false)
@@ -220,6 +221,10 @@ const VendorForm = () => {
               </button>
               <small className="text-success">{message}</small>
             </div>
+
+            <p className="text-secondary" style={{ fontSize: "14px" }}>
+                  <Link to={'/login'} className="text-decoration-none text-secondary">Already have an Account?</Link>
+              </p>
           </form>
 
         
