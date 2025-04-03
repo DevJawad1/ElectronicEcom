@@ -59,8 +59,8 @@ const ProductCard = ({ product }) => {
       <img
         src={product.image}
         alt={product.name}
-        className="card-img-top"
-        style={{ height: '200px', objectFit: 'cover' }}
+        className="card-img-top mt-2 mt-md-0"
+        style={{ height: '200px', objectFit: 'contain' }}
       />
       <div className="card-body p-2 pt-3">
         <h6 className="text-muted" style={{fontSize:"13px", fontWeight:"400"}}>{product.brand}</h6>
@@ -97,9 +97,9 @@ const ProductSection = () => {
       </h2>
       <p className="text-muted">Don’t wait. Check it out, maybe it’s what you need.</p>
 
-      <div className="d-flex ">
+      <div className="d-md-flex">
         {products.map((product) => (
-          <div className="col-md-3  col-12 px-2" key={product.id}>
+          <div className="col-md-3  mx-auto col-11 px-2" key={product.id}>
             <ProductCard product={product} />
           </div>
         ))}

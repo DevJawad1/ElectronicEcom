@@ -4,3 +4,9 @@ body{
 .home-box{
     height: 100vh;
 }
+
+@media (max-width:600px) {
+    .home-box{
+        height: auto;
+    }
+}

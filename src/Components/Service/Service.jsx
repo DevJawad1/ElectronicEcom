@@ -25,7 +25,7 @@ const Services = () => {
             <h5>Customer Support</h5>
           </div>
         </div>
-      <div className="service-wrapper col-md-3 col-12 px-4">
+      <div className="service-wrapper col-md-3 col-12 px-4 mt-5 mt-md-0">
           <div className="green2"></div>
           <div className="white "></div>
           <div className="service-card col-11">
@@ -35,7 +35,7 @@ const Services = () => {
             <h5>24/7 Services</h5>
           </div>
         </div>
-      <div className="service-wrapper col-md-3 col-12 px-4">
+      <div className="service-wrapper col-md-3 col-12 px-4 mt-5 mt-md-0">
           <div className="green"></div>
           <div className="white "></div>
           <div className="service-card col-11">
@@ -45,7 +45,7 @@ const Services = () => {
             <h5>Fast Delivery</h5>
           </div>
         </div>
-      <div className="service-wrapper col-md-3 col-12 px-4">
+      <div className="service-wrapper col-md-3 col-12 px-4 mt-5 mt-md-0">
           <div className="green2"></div>
           <div className="white "></div>
           <div className="service-card col-11">

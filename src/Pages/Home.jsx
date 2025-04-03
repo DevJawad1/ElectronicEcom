@@ -16,7 +16,7 @@ export const Home = () => {
       </div>
       <Services />
       <ProductSection/>
-      <div className="mt-5">
+      <div className="">
         <Banner/>
       </div>
       <Footer/>

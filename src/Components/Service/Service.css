@@ -61,3 +61,10 @@
     margin-top: -10px;
     font-size: 15px;
   }
+
+
+@media (max-width:600px) {
+  .service-card{
+    margin-left: 17.5px;
+  }
+}
