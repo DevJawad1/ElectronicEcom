@@ -91,7 +91,7 @@ const ProductSection = () => {
       </h2>
       <p className="text-gray-500">Don’t wait. Check it out, maybe it’s what you need.</p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
+      <div className="d-flex grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
