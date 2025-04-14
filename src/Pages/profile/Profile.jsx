@@ -7,6 +7,7 @@ import { Navbar } from "../../Components/Navbar/Navbar"
 import noImg from '../../Components/Assets/Img/noImg.JPG'
 import axios from "axios";
 import FullPageLoader from "../../Components/Loader/FullLoader"
+import { Link } from "react-router-dom"
 
 export default function Profile() {
     // Simple toggle state
@@ -71,10 +72,10 @@ export default function Profile() {
                                 <ClipboardList className="me-3 text-success" size={20} />
                                 <span>Orders</span>
                             </a>
-                            <a href="#" className="nav-link d-flex align-items-center text-dark py-2">
+                            <Link to="/upload" className="nav-link d-flex align-items-center text-dark py-2">
                                 <Upload className="me-3 text-success" size={20} />
                                 <span>Upload Items</span>
-                            </a>
+                            </Link>
                         </nav>
                     </div>
                 </div>
