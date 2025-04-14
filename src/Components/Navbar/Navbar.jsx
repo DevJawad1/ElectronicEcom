@@ -191,14 +191,14 @@ export const Navbar = () => {
 
         {/* Icons Section */}
         <div className="nav-icons d-flex mx-2">
-          <Link to="#" className="nav-icon">
-            <User size={20} /> <span>Account <b>LOGIN</b></span>
+          <Link to="/login" className="nav-icon d-flex gap-1">
+            <User size={30} /> <span>Account <br /> <b>LOGIN</b></span>
           </Link>
-          <Link to="#" className="nav-icon">
-            <Heart size={20} /> <span>Wishlist <b>3-ITEMS</b></span>
+          <Link to="#" className="nav-icon d-flex gap-1">
+            <Heart size={30} /> <span>Wishlist <br /> <b>3-ITEMS</b></span>
           </Link>
-          <Link to="#" className="nav-icon">
-            <ShoppingBag size={20} /> <span>Cart <b>3-ITEMS</b></span>
+          <Link to="#" className="nav-icon d-flex gap-1">
+            <ShoppingBag size={30} /> <span>Cart <br /> <b>3-ITEMS</b></span>
           </Link>
         </div>
       </div>

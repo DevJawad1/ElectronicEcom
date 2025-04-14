@@ -8,6 +8,7 @@ import UploadProduct from './Pages/UploadProduct';
 import Profile from './Pages/profile/Profile';
 
 function App() {
+  const userId = localStorage.getItem('ElectroUserID')
   return (
     <Router> {/* Wrap everything inside Router */}
       <>
@@ -26,7 +27,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/upload" element={<UploadProduct />} />
+          <Route path="/upload" element={<UploadProduct userId={userId}/>} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </>
