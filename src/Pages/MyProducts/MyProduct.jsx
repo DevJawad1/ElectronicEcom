@@ -4,14 +4,17 @@ import PgIndicator from '../../Components/pageIndicator/PgIndicator'
 import axios from 'axios'
 import { PackageOpen } from "lucide-react";
 import './myPrd.css'
+import FullPageLoader from '../../Components/Loader/FullLoader';
 const MyProduct = ({userId}) => {
     const [myProduct, setmyProduct] = useState('')
-    
+    const [loading, setloading] = useState(false)
     const userProduct = async()=>{
         try {
+          setloading(true)
           const response = await axios.post('https://electrobackend-dbup.onrender.com/user/getUserProduct', {userId})  
           console.log(response)
           setmyProduct(response.data.products)
+          setloading(false)
         } catch (error) {
           console.log(error)
           
@@ -23,7 +26,8 @@ const MyProduct = ({userId}) => {
     }, [])
   return (
     <div>
-         <Navbar />
+      <Navbar />
+      {!myProduct.length>0 && <FullPageLoader msg={'Getting your Products'}/>}
       <div className="mt-2 mx-md-5">
         <PgIndicator pgName={"My Products"} />
       </div>
