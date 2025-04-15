@@ -7,7 +7,7 @@ import BuyerForm from "../../Components/vendorForm/BuyerForm";
 
 const Register = () => {
   
-  const [type, settype] = useState(true)
+  const [type, settype] = useState(false)
 
 
   const typeStyle={
