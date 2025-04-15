@@ -1,0 +1,9 @@
+.myPrdImgHolder{
+    height: 300px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.line-heightmyPrd{
+    line-height: 9px;
+}
