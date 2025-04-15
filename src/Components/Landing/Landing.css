@@ -1,6 +1,11 @@
-.hero{
-    height: 80vh;
-    /* border: 2px solid red; */
+.landing-title{
+    color: #002D17;
+    font-size: 55px;
+    line-height: 1.5;
+}
+.landing-sub-tit{
+    margin-top: -20px;
+    color:#475569;
 }
 .her{
     /* width: 3050px !important; */
@@ -8,4 +13,34 @@
 }
 .heroText{
     /* font-size: 100px !important; */
+}
+.linear-color{
+    background: linear-gradient(to right, #85C905, #466904);
+    height: 50px;
+}
+
+@media (max-width:600px) {
+    .hero{
+        height: 81.5vh;
+        background-image: url('../Assets/Img/landingImg.JPG');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .trans-color{
+        background-color: rgba(255, 255, 255, 0.757);
+        width: 100vw;
+    }
+    .landing-title{
+        font-size: 30px;
+        line-height: 1.3;
+        /* color: white; */
+    }
+    .landing-sub-tit{
+        margin-top: 0px;
+        /* color: white; */
+    }
+    .landing-sub-tit span{
+        font-size: 18px !important;
+
+    }
 }

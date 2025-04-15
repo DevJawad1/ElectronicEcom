@@ -4,7 +4,7 @@ import axios from "axios";
 import logo from "../Assets/Img/Logo (3).png";
 import { useNavigate } from 'react-router-dom';
 import {Link} from 'react-router-dom'
-const VendorForm = () => {
+const BuyerForm = () => {
   const navigate = useNavigate();
   const [loading, setloading] = useState(false)
     const [formData, setFormData] = useState({
@@ -44,9 +44,6 @@ const VendorForm = () => {
         if (!nameRegex.test(formData.fullName)) {
           errors.fullName = "Enter a valid full name (min 3 letters)";
         }
-        if (!nameRegex.test(formData.businessName)) {
-          errors.businessName = "Enter a valid business name (min 3 letters)";
-        }
         if (!emailRegex.test(formData.email)) {
           errors.email = "Enter a valid email address";
         }
@@ -59,14 +56,8 @@ const VendorForm = () => {
         if (!formData.city.trim()) {
           errors.city = "City is required";
         }
-        if (!postCodeRegex.test(formData.postCode)) {
-          errors.postCode = "Enter a valid post code (3-10 characters)";
-        }
         if (!formData.country.trim()) {
           errors.country = "Country is required";
-        }
-        if (!formData.region.trim()) {
-          errors.region = "Region is required";
         }
     
         setErrors(errors);
@@ -96,7 +87,7 @@ const VendorForm = () => {
           <div className="text-center">
             <img src={logo} alt="logo" className="" />
           </div>
-          <h6 className='text-center pt-1 text-secondary'><span style={{color:"#0DC029"}}>Vendor</span> Sign Up</h6>
+          <h6 className='text-center pt-1 text-secondary'><span style={{color:"#0DC029"}}>Buyer</span> Sign Up</h6>
           <form className="form-div mt-4 p-2" onSubmit={handleSubmit}>
             <div className="d-md-flex flex-wrap">
               {/* Full Name */}
@@ -111,20 +102,8 @@ const VendorForm = () => {
                 <small className="text-danger">{errors.fullName}</small>
               </div>
 
-              {/* Business Name */}
-              <div className="col-md-6 px-md-3">
-                <span>Business Name*</span> <br />
-                <input type="text" name="businessName" 
-                  className="rounded w-100 mt-1 px-2" 
-                  style={{ height: "37px", border: "1px solid #E9E9E9", fontSize: "13px" }} 
-                  placeholder="Enter your Business Name" 
-                  onChange={handleChange}
-                />
-                <small className="text-danger">{errors.businessName}</small>
-              </div>
-
               {/* Email */}
-              <div className="col-md-6 px-md-3 mt-md-4">
+              <div className="col-md-6 px-md-3">
                 <span>Email*</span><br />
                 <input type="text" name="email" 
                   className="rounded w-100 mt-1 px-2" 
@@ -171,18 +150,6 @@ const VendorForm = () => {
                 <small className="text-danger">{errors.city}</small>
               </div>
 
-              {/* Post Code */}
-              <div className="col-md-6 px-md-3 mt-md-4">
-                <span>Post Code*</span><br />
-                <input type="text" name="postCode" 
-                  className="rounded w-100 mt-1 px-2" 
-                  style={{ height: "37px", border: "1px solid #E9E9E9", fontSize: "13px" }} 
-                  placeholder="Enter your Post Code" 
-                  onChange={handleChange}
-                />
-                <small className="text-danger">{errors.postCode}</small>
-              </div>
-
               <div className="col-md-6 px-md-3 mt-md-4">
                 <span>Country*</span><br />
                 <input type="text" name="country" 
@@ -194,16 +161,6 @@ const VendorForm = () => {
                 <small className="text-danger">{errors.country}</small>
               </div>
 
-              <div className="col-md-6 px-md-3 mt-md-4">
-                <span>Region*</span><br />
-                <input type="text" name="region" 
-                  className="rounded w-100 mt-1 px-2" 
-                  style={{ height: "37px", border: "1px solid #E9E9E9", fontSize: "13px" }} 
-                  placeholder="Enter your Post Code" 
-                  onChange={handleChange}
-                />
-                <small className="text-danger">{errors.region}</small>
-              </div>
               <div className="col-md-6 px-md-3 mt-md-4">
                 <span>Password*</span><br />
                 <input type="text" name="password" 
@@ -233,4 +190,4 @@ const VendorForm = () => {
   )
 }
 
-export default VendorForm
+export default BuyerForm

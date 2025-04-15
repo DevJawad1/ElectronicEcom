@@ -43,7 +43,7 @@ const Login = () => {
     if (!validateForm()) return;
 
     try {
-      const response = await axios.post("https://electronics-ecom-back-hyhcgju53-bug-solution.vercel.app/user/login", formData);
+      const response = await axios.post("https://electrobackend-dbup.onrender.com/user/login", formData);
       setMessage(response.data.message);
       if(response.data.status){
         localStorage.setItem('ElectroUserID', response.data.user)
@@ -70,7 +70,7 @@ const Login = () => {
               <span className="text-secondary fw-semibold" style={{ fontSize: "14px" }}>Email Address*</span>
               <input type="text" name="email"
                 className="rounded w-100 mt-1 px-2"
-                style={{ height: "45px", border: "1px solid #E9E9E9", fontSize: "13px" }}
+                style={{ height: "45px", border: "1px solid #E9E9E9", fontSize: "13.1px" }}
                 placeholder="Enter your email address"
                 onChange={handleChange}
               />
@@ -88,7 +88,9 @@ const Login = () => {
               </div>
 
               <div className="d-flex justify-content-between mt-3">
-                <p className="text-secondary" style={{ fontSize: "14px" }}>Create Account?</p>
+                <p className="text-secondary" style={{ fontSize: "14px" }}>
+                  <Link to={'/register'} className="text-decoration-none text-secondary">Create Account?</Link>
+                  </p>
                 <p className="text-secondary" style={{ fontSize: "14px" }}>Forgot Password?</p>
               </div>
 
