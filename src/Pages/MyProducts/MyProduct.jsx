@@ -38,7 +38,7 @@ const MyProduct = ({userId}) => {
           <div className='d-md-flex mt-4 wrap gap-md-5'>
             {
               myProduct.map((prd, i)=>(
-                <div className='w-100 border rounded'>
+                <div className='w-100 myPrdBox border rounded mt-3 mt-md-2'>
                   <div className="border-bottom">
                     <div className="col-12 myPrdImgHolder" style={{backgroundImage:`url(${prd.image[0]})`}}></div>
                   </div>

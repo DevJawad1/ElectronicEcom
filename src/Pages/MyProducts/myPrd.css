@@ -7,3 +7,9 @@
 .line-heightmyPrd{
     line-height: 9px;
 }
+
+@media (max-width:600px) {
+    .myPrdBox{
+        width: 10vw !important;
+    }
+}
