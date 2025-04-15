@@ -1,5 +1,5 @@
 import React from "react";
-import { Star, MapPin } from "lucide-react";
+import { Star, MapPin, ArrowRight } from "lucide-react";
 import frezer from './Assets/Img/Image11 1.png';
 import samsung from './Assets/Img/Samsung IMG 1.png';
 import tv from './Assets/Img/TV1.png';
@@ -91,7 +91,7 @@ const ProductCard = ({ product }) => {
 
 const ProductSection = () => {
   return (
-    <div className="px-md-5 my-5 home-box pt-md-4">
+    <div className="px-md-5 my-5 home-box pt-md-5">
       <h2 className="h2 font-weight-bold">
         Newly Uploaded <span className="text-success">Deals</span>
       </h2>
@@ -104,6 +104,7 @@ const ProductSection = () => {
           </div>
         ))}
       </div>
+      <button className="rounded bg-white p-3 col-4 mx-2 fw-bold fs-5" style={{border:"3px solid #0DC029", color:"#0DC029"}}>Start Exploring <ArrowRight/></button>
     </div>
   );
 };
