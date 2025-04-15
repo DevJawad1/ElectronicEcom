@@ -2,15 +2,18 @@
     background-color:#F8F9FB;
     border:2px solid #E8EBF1
 }
-.upload-box input{
+.details-box input, .details-box select{
     height: 65px;
     border:1px solid #E8EBF1 !important;
-
+    background-color: #F8F9FB;
 }
-.multipleImgBox{
+.multipleImgBox, .gal-imgs{
     background-size:contain;
     background-position:center;
     background-repeat: no-repeat;
+}
+.details-box input:focus{
+    outline: 2px solid #0DC029 !important;
 }
 .img-box-holder{
  width: 39vw;   
@@ -20,14 +23,13 @@
     height:65vh;
     width:47.5vw;
 }
-
 @media (max-width:600px) {
     .img-box-holder{
         width: 90vw;
         height: 55vh;
     }
     .prd-textarea{
-        height:65vh;
-        width:90vw;
+        height:45vh;
+        width:91vw;
     }
 }

@@ -191,7 +191,7 @@ export const Navbar = () => {
 
         {/* Icons Section */}
         <div className="nav-icons d-flex mx-2">
-          <Link to="/login" className="nav-icon d-flex gap-1">
+          <Link to="/profile" className="nav-icon d-flex gap-1">
             <User size={30} /> <span>Account <br /> <b>LOGIN</b></span>
           </Link>
           <Link to="#" className="nav-icon d-flex gap-1">

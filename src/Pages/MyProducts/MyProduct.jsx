@@ -35,26 +35,28 @@ const MyProduct = ({userId}) => {
         myProduct.length>0?
         <div className='p-2 mt-5 fw-thin'>
           <h5 className='text-secondary'>Available <span style={{color:"#0DC029"}}>Items</span></h5>
-          <div className='d-md-flex mt-4 wrap gap-md-5'>
+          <div className='d-md-flex mt-4 flex-wrap'>
             {
               myProduct.map((prd, i)=>(
-                <div className='w-100 myPrdBox border rounded mt-3 mt-md-2'>
-                  <div className="border-bottom">
-                    <div className="col-12 myPrdImgHolder" style={{backgroundImage:`url(${prd.image[0]})`}}></div>
-                  </div>
-                  <div className="">
-                    <p className='text-secondary text-end' style={{fontSize:"12px"}}>Uploaded 1 day ago</p>
-                    <div className="p-2 pt-0 lh-1">
-                      <p className='text-secondary'>{prd.productTit}</p>
-                      <div className="line-heightmyPrd">
-                        <p style={{color:"#566370"}}>{prd.cont}</p>
-                        <p className='fw-bold' style={{color:"#626E79"}}>₦{prd.price}.00</p>
-                      </div>
+                <div className="col-md-3 px-3">
+                  <div className='myPrdBox border rounded mt-3 mt-md-3'>
+                    <div className="border-bottom">
+                      <div className="col-12 myPrdImgHolder" style={{backgroundImage:`url(${prd.image[0]})`}}></div>
                     </div>
+                    <div className="">
+                      <p className='text-secondary text-end' style={{fontSize:"12px"}}>Uploaded 1 day ago</p>
+                      <div className="p-2 pt-0 lh-1">
+                        <p className='text-secondary'>{prd.productTit}</p>
+                        <div className="line-heightmyPrd">
+                          <p style={{color:"#566370"}}>{prd.cont}</p>
+                          <p className='fw-bold' style={{color:"#626E79"}}>₦{prd.price}.00</p>
+                        </div>
+                      </div>
 
-                    <div className="mt-3 d-flex gap-3 justify-content-center p-2 pt-0">
-                        <button className='border border-0 rounded text-white' style={{backgroundColor:"#DA1B0D", width:"60px", height:"30px"}}>Delete</button>
-                        <button className='border border-0 rounded text-white' style={{backgroundColor:"#5CAF90", width:"60px", height:"30px"}}>Edit</button>
+                      <div className="mt-3 d-flex gap-3 justify-content-center p-2 pt-0">
+                          <button className='border border-0 rounded text-white' style={{backgroundColor:"#DA1B0D", width:"60px", height:"30px"}}>Delete</button>
+                          <button className='border border-0 rounded text-white' style={{backgroundColor:"#5CAF90", width:"60px", height:"30px"}}>Edit</button>
+                      </div>
                     </div>
                   </div>
                 </div>
