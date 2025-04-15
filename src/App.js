@@ -6,11 +6,17 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Shop from './Pages/Shop';
 import UploadProduct from './Pages/UploadProduct';
 import Profile from './Pages/profile/Profile';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios'
+import MyProduct from './Pages/MyProducts/MyProduct';
 function App() {
   const userId = localStorage.getItem('ElectroUserID')
+
+  
   return (
-    <Router> {/* Wrap everything inside Router */}
+    <div>
+      <Router> {/* Wrap everything inside Router */}
       <>
         {/* Bootstrap CSS */}
         <link 
@@ -21,6 +27,8 @@ function App() {
         />
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.0/dist/tailwind.min.css" rel="stylesheet"/>
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
         {/* Define Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
@@ -29,9 +37,13 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/upload" element={<UploadProduct userId={userId}/>} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/myProducts" element={<MyProduct userId={userId}/>} />
         </Routes>
       </>
     </Router>
+    <ToastContainer />
+    </div>
+    
   );
 }
 

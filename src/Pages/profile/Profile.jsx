@@ -63,15 +63,15 @@ export default function Profile() {
                                 <Home className="me-3 text-success" size={20} />
                                 <span>Overview</span>
                             </a>
-                            <a href="#" className="nav-link d-flex align-items-center text-dark py-2">
+                            <Link to={'/myProducts'} className="nav-link d-flex align-items-center text-dark py-2">
                                 <ShoppingBag className="me-3 text-success" size={20} />
-                                <span>Products</span>
+                                <span>My Products</span>
                                 <ChevronDown className="ms-auto" size={16} />
-                            </a>
-                            <a href="#" className="nav-link d-flex align-items-center text-dark py-2">
+                            </Link>
+                            <Link to="/" className="nav-link d-flex align-items-center text-dark py-2">
                                 <ClipboardList className="me-3 text-success" size={20} />
                                 <span>Orders</span>
-                            </a>
+                            </Link>
                             <Link to="/upload" className="nav-link d-flex align-items-center text-dark py-2">
                                 <Upload className="me-3 text-success" size={20} />
                                 <span>Upload Items</span>

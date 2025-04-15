@@ -12,3 +12,22 @@
     background-position:center;
     background-repeat: no-repeat;
 }
+.img-box-holder{
+ width: 39vw;   
+ height: 65vh;
+}
+.prd-textarea{
+    height:65vh;
+    width:47.5vw;
+}
+
+@media (max-width:600px) {
+    .img-box-holder{
+        width: 90vw;
+        height: 55vh;
+    }
+    .prd-textarea{
+        height:65vh;
+        width:90vw;
+    }
+}
