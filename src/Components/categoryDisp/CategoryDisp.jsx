@@ -5,6 +5,25 @@ const CategoryDisp = ({ onSelectChange }) => {
   const [sortedCategory, setSortedCategory] = useState({})
   const [selectedItems, setSelectedItems] = useState([])
 
+  const [isFixed, setIsFixed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if the scroll position is beyond a certain point (e.g., 200px)
+      if (window.scrollY > 320) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    // Add the event listener for scroll
+    window.addEventListener('scroll', handleScroll);
+  // Clean up the event listener on component unmount
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+  }, []);
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -94,7 +113,7 @@ const CategoryDisp = ({ onSelectChange }) => {
   
 
   return (
-    <div className="border h-100 w-100 rounded p-3 pt-3">
+    <div className="border h-100 rounded p-3 pt-3" style={{position: isFixed?"fixed":"",  top: isFixed ? '2%':'',  width: isFixed ? '335px' : '', zIndex:'1'}}>
       <h6 className='px-2 border-bottom' style={{ height: "40px", color: "#5CAF90" }}>Category</h6>
       <div className="mt-3">
         {Object.entries(sortedCategory).map(([catKey, items]) => (
