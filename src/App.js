@@ -10,6 +10,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
 import MyProduct from './Pages/MyProducts/MyProduct';
+import Productpage from './Pages/Productpage/Productpage';
 function App() {
   const userId = localStorage.getItem('ElectroUserID')
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/upload" element={<UploadProduct userId={userId}/>} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/myProducts" element={<MyProduct userId={userId}/>} />
+          <Route path="/productPage" element={<Productpage userId={userId}/>} />
         </Routes>
       </>
     </Router>

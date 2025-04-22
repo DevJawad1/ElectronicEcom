@@ -7,10 +7,11 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { MapPin, Star } from 'lucide-react'
 import './shop.css'
+import { useNavigate } from 'react-router-dom'
 const Shop = () => {
   const [latestPRD, setLatestPRD] = useState([])
   const [selectedCategories, setSelectedCategories] = useState([])
-
+  const navigate = useNavigate()
   const handleCategorySelection = (selected) => {
     setSelectedCategories(selected)
     console.log(selected)
@@ -64,7 +65,7 @@ const Shop = () => {
                     {selectedCategories.map((item, idx) => (
                       <div key={idx} className={`${tit.category == item.category ? "d-flex flex-wrap gap-md-2" : "d-none"} px-md-4`}>
                         {item.items.map((product, i) => (
-                          <div className="col-md-3 col-6 px-1 px-md-0">
+                          <div className="col-md-3 col-6 px-1 px-md-0" onClick={()=>(navigate())}>
                             <div className="shadow-sm mb-4 border bg-white rounded mt-md-3">
                               <img
                                 src={product.image[0]}

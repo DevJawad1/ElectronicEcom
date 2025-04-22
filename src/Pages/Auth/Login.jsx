@@ -48,7 +48,7 @@ const Login = () => {
       if(response.data.status){
         localStorage.setItem('ElectroUserID', response.data.user)
         localStorage.setItem('ElectroUserToken', response.data.token)
-        navigate('/profile')  
+        navigate('/shop')  
       }
       setloading(false)
     } catch (error) {
