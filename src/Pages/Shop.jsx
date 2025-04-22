@@ -54,10 +54,10 @@ const Shop = () => {
 
                   <div className="">
                     <div className="mt-5 px-5 mx-4">
-                      <h6 className='fs-5'>
-                        <span style={{ color: "#0DC029", textTransform: "capitalize" }}>{tit.category}</span> <span className='text-secondary'>AVAILABLE</span>
+                      <h6 className='fs-5 text-center text-md-start'>
+                        <span style={{ color: "#0DC029", textTransform: "capitalize" }}>{tit.category}</span> <span className='text-secondary '>AVAILABLE</span>
                       </h6>
-                      <h6 className='text-secondary' style={{ fontSize: "13px", fontWeight: "200" }}>
+                      <h6 className='text-secondary text-center text-md-start' style={{ fontSize: "13px", fontWeight: "200" }}>
                         Shop online for item closer to within your <span style={{ color: "#0DC029" }}>AREA!</span>
                       </h6>
                     </div>
