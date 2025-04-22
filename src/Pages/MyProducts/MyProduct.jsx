@@ -5,6 +5,7 @@ import axios from 'axios'
 import { PackageOpen } from "lucide-react";
 import './myPrd.css'
 import FullPageLoader from '../../Components/Loader/FullLoader';
+import NoProductFound from '../../Components/NoProductFound';
 const MyProduct = ({userId}) => {
     const [myProduct, setmyProduct] = useState('')
     const [loading, setloading] = useState(false)
@@ -65,11 +66,7 @@ const MyProduct = ({userId}) => {
           </div>
         </div>
         :
-        <div className='shadow p-3 mt-3 rounded text-center col-md-4 col-11 mx-auto'>
-            <PackageOpen size={150} style={{color:"#0DC029"}}/>
-            <h6 className='mt-1'>No product in your store</h6>
-            <button className='btn mt-2' style={{backgroundColor:"#0DC029"}}>Start Uploading</button>
-        </div>
+        <NoProductFound msg={'No product in your store'}/>
       }
     </div>
   )

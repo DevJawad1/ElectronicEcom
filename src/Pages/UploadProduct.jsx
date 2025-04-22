@@ -84,6 +84,7 @@ const UploadProduct = ({ userId }) => {
   const [address, setaddress] = useState('')
   const [brand, setbrand] = useState('')
   const [localImgs, setLocalImgs] = useState([])
+  const [majorName, setmajorName] = useState('')
   const [loading, setloading] = useState({state:false, type:"img"})
   const handleImageUpload = (e) => {
     const files = e.target.files;
@@ -132,8 +133,9 @@ const UploadProduct = ({ userId }) => {
     setloading({state:true, type:"prd"})
     const productDetails = {
       owner: userId,
-      brand:"",
+      brand:brand,
       productTit: name,
+      majorName,
       image: multipleImgArray,
       price: Number(produtPrice),
       quantity: Number(productQuant),
@@ -240,13 +242,16 @@ const UploadProduct = ({ userId }) => {
         <div className="col-md-6 mt-md-5 pt-md-5 details-box p-3 mt-3 p-md-0">
           <h6 className="border-bottom" style={{height:"30px"}}>Product Details</h6>
           <h6 className='mt-4 pt-1' style={{ color: "#4B5966" }}>Product Brand</h6>
-          <input type="text" placeholder='Optional' value={name} onChange={(e) => setbrand(e.target.value)} className='col-md-11 col-12 inp rounded px-2' />
+          <input type="text" placeholder='Optional, note this will be unknown to the buyers' value={brand} onChange={(e) => setbrand(e.target.value)} className='col-md-11 col-12 inp rounded px-2' />
           <h6 className='mt-4 pt-1' style={{ color: "#4B5966" }}>Product Name</h6>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} className='col-md-11 col-12 inp rounded px-2' />
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='' className='col-md-11 col-12 inp rounded px-2' />
+          <h6 className='mt-4 pt-1' style={{ color: "#4B5966" }}>Product Major Name</h6>
+          <input type="text" value={majorName} onChange={(e) => setmajorName(e.target.value)} placeholder='Only the major name of the product, e.g TV, Bag, Laptop. these are major names' className='col-md-11 col-12 inp rounded px-2' />
+          
           <h6 className='mt-4 pt-1' style={{ color: "#4B5966" }}>Product Price</h6>
           <input type="number" value={produtPrice} onChange={(e) => setProductPrice(e.target.value)} className='col-md-11 col-12 inp rounded px-2' />
           <h6 className='mt-4 pt-1' style={{ color: "#4B5966" }}>Quantity</h6>
-          <input type="number" value={productQuant} onChange={(e) => setProductQuant(e.target.value)} className='col-12 col-md-11 inp rounded px-2' />
+          <input type="number" value={productQuant} onChange={(e) => setProductQuant(e.target.value)} placeholder='How many do you have in your store' className='col-12 col-md-11 inp rounded px-2' />
           <h6 className='mt-4 pt-1' style={{ color: "#4B5966" }}>Category</h6>
           <select
             value={productcategory}
@@ -258,14 +263,15 @@ const UploadProduct = ({ userId }) => {
             <option value="gadget">Laptops & Phone</option>
             <option value="accessories">Accessories</option>
             <option value="building">Building Equipment</option>
+            <option value="others">Others</option>
           </select>
 
-          <h6 className='mt-4 pt-1' style={{ color: "#4B5966" }}>Address</h6>
+          <h6 className='mt-4 pt-1' style={{ color: "#4B5966" }}>City</h6>
           <input type="text" value={address} onChange={(e) => setaddress(e.target.value)} className='col-12 col-md-11 inp rounded px-2' />
 
 
           <div className="">
-            <h6 className='mt-md-4 mt-3' style={{ color: "#4B5966" }}>Description</h6>
+            <h6 className='mt-md-4 mt-3' style={{ color: "#4B5966" }}>Description and Details</h6>
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
