@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Navbar } from '../../Components/Navbar/Navbar'
 import PgIndicator from '../../Components/pageIndicator/PgIndicator'
 import CategoryDisp from '../../Components/categoryDisp/CategoryDisp'
 
 const Productpage = () => {
+    const [selectedCategories, setSelectedCategories] = useState([])
+    const handleCategorySelection = (selected) => {
+      setSelectedCategories(selected)
+      console.log(selected)
+    }
+  
   return (
     <div>
         <Navbar/>

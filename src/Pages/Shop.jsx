@@ -11,11 +11,11 @@ import { useNavigate } from 'react-router-dom'
 const Shop = () => {
   const [latestPRD, setLatestPRD] = useState([])
   const [selectedCategories, setSelectedCategories] = useState([])
-  const navigate = useNavigate()
   const handleCategorySelection = (selected) => {
     setSelectedCategories(selected)
     console.log(selected)
   }
+  const navigate = useNavigate()
 
   const getNewProduct = async () => {
     try {
@@ -65,12 +65,12 @@ const Shop = () => {
                     {selectedCategories.map((item, idx) => (
                       <div key={idx} className={`${tit.category == item.category ? "d-flex flex-wrap gap-md-2" : "d-none"} px-md-4`}>
                         {item.items.map((product, i) => (
-                          <div className="col-md-3 col-6 px-1 px-md-0" onClick={()=>(navigate())}>
+                          <div className="col-md-3 col-6 px-1 px-md-0" onClick={()=>(navigate('/productPage'))}>
                             <div className="shadow-sm mb-4 border bg-white rounded mt-md-3">
                               <img
                                 src={product.image[0]}
                                 alt={product.productTit}
-                                className="card-img-top mt-2 mt-md-0 "
+                                className="card-img-top  "
                               />
                               <div className="card-body p-2 pt-3">
                                 <h6 className="text-muted" style={{ fontSize: "13px", fontWeight: "400" }}>{product.brand || 'Unknown Brand'}</h6>
