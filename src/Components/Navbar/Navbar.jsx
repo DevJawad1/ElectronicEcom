@@ -172,8 +172,8 @@ export const Navbar = () => {
               <li className="nav-item dropdown">
                 <Link className="nav-link dropdown-toggle" to="#" data-bs-toggle="dropdown">Products</Link>
                 <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item" to="#">Phones</Link></li>
-                  <li><Link className="dropdown-item" to="#">Laptops</Link></li>
+                  <li><Link className="dropdown-item" to="/shop">Shops</Link></li>
+                  <li><Link className="dropdown-item" to="myProducts">My Product</Link></li>
                 </ul>
               </li>
               <li className="nav-item">
