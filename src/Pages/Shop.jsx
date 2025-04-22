@@ -62,7 +62,7 @@ const Shop = () => {
                       </h6>
                     </div>
                     {selectedCategories.map((item, idx) => (
-                      <div key={idx} className={`${tit.category == item.category ? "d-flex flex-wrap gap-md-2" : "d-none"} bg-light px-md-4`}>
+                      <div key={idx} className={`${tit.category == item.category ? "d-flex flex-wrap gap-md-2" : "d-none"} px-md-4`}>
                         {item.items.map((product, i) => (
                           <div className="col-md-3 col-6 px-1 px-md-0">
                             <div className="shadow-sm mb-4 border bg-white rounded mt-md-3">
