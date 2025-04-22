@@ -1,0 +1,14 @@
+.category-box{
+    height:100vh;
+}
+.card-img-top{
+    object-fit: contain;
+    border-top-right-radius: 6px !important;
+    border-top-left-radius: 6px !important;
+    /* border-radius: 50px !important; */
+}
+@media (max-width:600px) {
+    .category-box{
+        height: auto;
+    }
+}

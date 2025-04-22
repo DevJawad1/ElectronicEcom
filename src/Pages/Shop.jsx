@@ -6,7 +6,7 @@ import CategoryDisp from '../Components/categoryDisp/CategoryDisp'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { MapPin, Star } from 'lucide-react'
-
+import './shop.css'
 const Shop = () => {
   const [latestPRD, setLatestPRD] = useState([])
   const [selectedCategories, setSelectedCategories] = useState([])
@@ -37,13 +37,13 @@ const Shop = () => {
     <div>
       <Navbar />
       <PgIndicator pgName={"Shop Page"} />
-      <div className="mt-3 d-flex">
-        <div className="category-box col-3 position-relative" style={{ paddingLeft: "5px", height: "100vh" }}>
+      <div className="mt-3 d-md-flex">
+        <div className="category-box col-3 position-relative" style={{ paddingLeft: "5px", }}>
           <CategoryDisp onSelectChange={handleCategorySelection} />
         </div>
 
-        <div className='col-9'>
-          <div className="px-5">
+        <div className='col-md-9'>
+          <div className="px-md-5 px-1 ">
             <Banner />
           </div>
 
@@ -69,8 +69,7 @@ const Shop = () => {
                               <img
                                 src={product.image[0]}
                                 alt={product.productTit}
-                                className="card-img-top mt-2 mt-md-0"
-                                style={{ height: '250px', objectFit: 'contain' }}
+                                className="card-img-top mt-2 mt-md-0 "
                               />
                               <div className="card-body p-2 pt-3">
                                 <h6 className="text-muted" style={{ fontSize: "13px", fontWeight: "400" }}>{product.brand || 'Unknown Brand'}</h6>
