@@ -2,7 +2,8 @@
     height:100vh;
 }
 .card-img-top{
-    object-fit: contain;
+    height:250px;
+    /* object-fit: contain; */
     border-top-right-radius: 6px !important;
     border-top-left-radius: 6px !important;
     /* border-radius: 50px !important; */
@@ -12,6 +13,6 @@
         height: auto;
     }
     .card-img-top{
-        
+        height:200px;
     }
 }

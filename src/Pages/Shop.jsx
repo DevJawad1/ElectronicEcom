@@ -63,10 +63,10 @@ const Shop = () => {
                       </h6>
                     </div>
                     {selectedCategories.map((item, idx) => (
-                      <div key={idx} className={`${tit.category == item.category ? "d-flex flex-wrap gap-md-2" : "d-none"} px-md-4`}>
+                      <div key={idx} className={`${tit.category == item.category ? "d-flex flex-wrap " : "d-none"} px-md-4 px-1`}>
                         {item.items.map((product, i) => (
-                          <div className="col-md-3 col-6 px-1 px-md-0" onClick={()=>(navigate('/productPage'))}>
-                            <div className="shadow-sm mb-4 border bg-white rounded mt-md-3">
+                          <div className="col-md-3 col-6 px-1 px-md-1" onClick={()=>(localStorage.setItem('product', product._id), navigate('/productPage'))}>
+                            <div className="shadow-sm border bg-white rounded mt-md-3 mt-2">
                               <img
                                 src={product.image[0]}
                                 alt={product.productTit}

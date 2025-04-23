@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { List } from 'lucide-react'
 
-const CategoryDisp = ({ onSelectChange }) => {
+const CategoryDisp = ({ onSelectChange, categoryName }) => {
     const [sortedCategory, setSortedCategory] = useState({})
     const [selectedItems, setSelectedItems] = useState([])
 
@@ -99,12 +99,23 @@ const CategoryDisp = ({ onSelectChange }) => {
                 updated[categoryIndex] = { ...category };
             }
         } else {
-            // No such category exists yet — create new
-            const newItems = item.type.items.map(p => ({ ...p, typeName: item.type.name }));
-            updated.push({
-                category: item.category,
-                items: newItems
-            });
+            if(categoryName){
+                if(categoryName==item.category){
+                    const newItems = item.type.items.map(p => ({ ...p, typeName: item.type.name }));
+                    updated.push({
+                        category: item.category,
+                        items: newItems
+                    });   
+                }
+            }else{
+
+                // No such category exists yet — create new
+                const newItems = item.type.items.map(p => ({ ...p, typeName: item.type.name }));
+                updated.push({
+                    category: item.category,
+                    items: newItems
+                });
+            }
         }
 
         setSelectedItems(updated);
