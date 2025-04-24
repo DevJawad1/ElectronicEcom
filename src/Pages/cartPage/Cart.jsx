@@ -59,7 +59,7 @@ const Cart = ({ userId }) => {
   const deleteCart=async(prd)=>{
     try {
       
-      const response = await axios.post('http://localhost:2500/user/realDelete', {product:prd, user:userId})
+      const response = await axios.post('http://localhost:2500/user/realDelete', {product:prd, buyer:userId})
       if(response.data.status){
         getcart()
         toast.success(response.data.msg)
