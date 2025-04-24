@@ -52,6 +52,8 @@ const Cart = ({ userId }) => {
       console.log(error)
       setLoading(false)
       toast.error(error.message)
+    }finally{
+      setLoading(false)
     }
   }
 
@@ -80,8 +82,9 @@ const Cart = ({ userId }) => {
 
         <div className="mt-3">
           {
-          loading?<CartLoader/>:
-          myCarts.length > 0 ? (
+          loading?
+          <CartLoader/>:
+          myCarts.length > 0 ? 
             <div className="d-flex flex-wrap">
               {myCarts.map((product) => (
                 <div key={product._id} className="col-md-2 col-6 cart-box-height px-1 px-md-1">
@@ -134,7 +137,7 @@ const Cart = ({ userId }) => {
                 </div>
               ))}
             </div>
-          ) : (
+          : 
             <div className="shadow p-3 mt-3 rounded text-center col-md-4 col-11 mx-auto">
               <ShoppingCart size={150} style={{ color: '#0DC029' }} />
               <h6 className="mt-1">No product found in your cart</h6>
@@ -144,7 +147,7 @@ const Cart = ({ userId }) => {
                 </Link>
               </button>
             </div>
-          )}
+          }
         </div>
       </div>
     </div>
