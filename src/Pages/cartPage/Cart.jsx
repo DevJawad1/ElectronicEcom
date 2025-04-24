@@ -3,13 +3,15 @@ import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { Navbar } from '../../Components/Navbar/Navbar'
 import PgIndicator from '../../Components/pageIndicator/PgIndicator'
-import { MapPin, ShoppingCart } from 'lucide-react'
+import { ArrowRight, MapPin, ShoppingCart, Trash } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import './cart.css'
+import CartLoader from '../../Components/CartLoader'
 const Cart = ({ userId }) => {
   const [myCarts, setMyCarts] = useState([])
   const [quantities, setQuantities] = useState({})
-   
+  const [loading, setLoading] = useState(false)
+  const [miniloading, setMiniloading] = useState(false)
   const getEachCart = async (prd) => {
     try {
       const response = await axios.post('https://electrobackend-dbup.onrender.com/user/PTcart', {
@@ -27,6 +29,7 @@ const Cart = ({ userId }) => {
 
   const getcart = async () => {
     try {
+      setLoading(true)
       const response = await axios.post('https://electrobackend-dbup.onrender.com/user/cart', {
         buyer: userId,
       })
@@ -43,13 +46,28 @@ const Cart = ({ userId }) => {
           })
         )
         setQuantities(qtyObj)
+        setLoading(false)
       }
     } catch (error) {
       console.log(error)
+      setLoading(false)
       toast.error(error.message)
     }
   }
 
+
+  const deleteCart=async(prd)=>{
+    try {
+      
+      const response = await axios.post('http://localhost:2500/user/realDelete', {product:prd, user:userId})
+      if(response.data.status){
+        getcart()
+        toast.success(response.data.msg)
+      }else{toast.error(response.data.msg)}
+    } catch (error) {
+      toast(error.message)
+    }
+  }
   useEffect(() => {
     getcart()
   }, [])
@@ -61,11 +79,18 @@ const Cart = ({ userId }) => {
         <PgIndicator pgName={'My cart'} />
 
         <div className="mt-3">
-          {myCarts.length > 0 ? (
+          {
+          loading?<CartLoader/>:
+          myCarts.length > 0 ? (
             <div className="d-flex flex-wrap">
               {myCarts.map((product) => (
                 <div key={product._id} className="col-md-2 col-6 cart-box-height px-1 px-md-1">
-                  <div className="shadow-sm border bg-white rounded mt-md-3 mt-2">
+                  <div className="shadow border bg-white rounded mt-md-3 mt-2">
+                    <div 
+                    onClick={()=>{deleteCart(product._id)}}
+                    className="position-absolute bg-danger text-white d-flex align-items-center justify-content-center shadow-sm" style={{width:"35px", height:"35px", borderRadius:"50%"}}>
+                      <Trash size={20}/>
+                    </div>
                     <img
                       src={product.image[0]}
                       alt={product.productTit}
@@ -115,7 +140,7 @@ const Cart = ({ userId }) => {
               <h6 className="mt-1">No product found in your cart</h6>
               <button className="btn mt-2" style={{ backgroundColor: '#0DC029' }}>
                 <Link to={'/shop'} className="text-decoration-none text-white">
-                  Start Shopping
+                  Start Shopping <ArrowRight/>
                 </Link>
               </button>
             </div>
