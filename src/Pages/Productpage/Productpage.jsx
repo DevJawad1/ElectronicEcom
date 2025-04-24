@@ -151,14 +151,14 @@ const Productpage = ({ userId }) => {
                     </ContentLoader>
                 </div>
 
-                {product && <div className={`${loading ? "d-none" : "d-flex"}`}>
+                {product && <div className={`${loading ? "d-none" : "d-md-flex"}`}>
                     <div className="col-md-3 px-3">
                         <div className="bg-light">
                             <CategoryDisp onSelectChange={handleCategorySelection} categoryName={product.category} />
                         </div>
                     </div>
                     <div className="col-md-9 d-md-flex">
-                        <div className="col-6">
+                        <div className="col-md-6">
                             <div className="px-2">
                                 <div className="border pt-3 rounded">
                                     <div className="display-img" style={{ backgroundImage: `url(${product.image[selectedPic]})` }}></div>
@@ -175,7 +175,7 @@ const Productpage = ({ userId }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-6 px-3">
+                        <div className="col-md-6 px-3 mt-3 mt-md-0">
                             <h4 className='text-secondary'>{product.productTit}</h4>
                             <div className="d-flex gap-3 align-item-center mt-3">
                                 <div>
@@ -195,7 +195,7 @@ const Productpage = ({ userId }) => {
                             <div className="text-style">
                                 <h5 className='fw-bold mt-4' style={{ color: "#4B5966" }}>#{product.price.toLocaleString()}.00</h5>
 
-                                <div className="mt-5">
+                                <div className="mt-md-5 mt-2">
                                     <h6>{product.cont}</h6>
                                     <h6 style={{ textTransform: "capitalize" }}> <span style={{ color: "#065A13" }} className='fw-bold'>Store Address:</span> {productStore}</h6>
                                 </div>
@@ -214,7 +214,7 @@ const Productpage = ({ userId }) => {
                                 </div>
 
                                 <div className="button-div">
-                                    <div className="border d-flex rounded col-md-3 align-items-center mt-3 justify-content-between">
+                                    <div className="border d-flex rounded col-md-3 col-6  align-items-center mt-3 justify-content-between">
                                         <button className="btn fs-5" onClick={()=>{deletecart(product)}}>-</button>
                                         <h6 className='pt-2'>{miniloading?<Spinner/>:countCart}</h6>
                                         <button className='btn' onClick={()=>{addCart(product)}}>+</button>
