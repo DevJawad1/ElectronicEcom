@@ -200,14 +200,12 @@ export default function LoadingAnimation({ type = "spinner", text = "Loading..."
 }
 
 // Example usage component
-export function LoadingExamples() {
+export function LoadingExamples({text}) {
   return (
-    <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
-      <h2>Loading Animation Examples</h2>
+    <div >
 
-      <h3>Spinner</h3>
-      <LoadingAnimation type="spinner" text="Loading data..." />
-
+      <LoadingAnimation size={10} type="spinner" text={text || ""} />
+{/* 
       <h3>Pulsing Dots</h3>
       <LoadingAnimation type="dots" text="Please wait..." />
 
@@ -224,7 +222,7 @@ export function LoadingExamples() {
       <LoadingAnimation type="circular" text="Initializing..." />
 
       <h3>Spinner (No Text)</h3>
-      <LoadingAnimation type="spinner" text="" />
+      <LoadingAnimation type="spinner" text="" /> */}
     </div>
   )
 }

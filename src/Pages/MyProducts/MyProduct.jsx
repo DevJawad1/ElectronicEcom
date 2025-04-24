@@ -27,7 +27,7 @@ const MyProduct = ({userId}) => {
     }, [])
   return (
     <div>
-      <Navbar />
+      <Navbar userId={userId}/>
       {!myProduct.length>0 && <FullPageLoader msg={'Getting your Products'}/>}
       <div className="mt-2 mx-md-5">
         <PgIndicator pgName={"My Products"} />

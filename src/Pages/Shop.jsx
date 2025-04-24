@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 import { MapPin, Star } from 'lucide-react'
 import './shop.css'
 import { useNavigate } from 'react-router-dom'
-const Shop = () => {
+const Shop = ({userId}) => {
   const [latestPRD, setLatestPRD] = useState([])
   const [selectedCategories, setSelectedCategories] = useState([])
   const handleCategorySelection = (selected) => {
@@ -36,7 +36,7 @@ const Shop = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar userId={userId}/>
       <PgIndicator pgName={"Shop Page"} />
       <div className="mt-3 d-md-flex">
         <div className="category-box col-3 position-relative" style={{ paddingLeft: "5px", }}>

@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
 import MyProduct from './Pages/MyProducts/MyProduct';
 import Productpage from './Pages/Productpage/Productpage';
+import Cart from './Pages/cartPage/Cart';
 function App() {
   const userId = localStorage.getItem('ElectroUserID')
 
@@ -35,11 +36,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/shop" element={<Shop />} />
+          <Route path="/shop" element={<Shop userId={userId}/>} />
           <Route path="/upload" element={<UploadProduct userId={userId}/>} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/myProducts" element={<MyProduct userId={userId}/>} />
           <Route path="/productPage" element={<Productpage userId={userId}/>} />
+          <Route path="/myCart" element={<Cart userId={userId}/>} />
         </Routes>
       </>
     </Router>

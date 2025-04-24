@@ -186,7 +186,7 @@ const UploadProduct = ({ userId }) => {
   }
   return (
     <div>
-      <Navbar />
+      <Navbar userId={userId}/>
       {loading.state && loading.type=="prd" && <FullPageLoader msg={'Uploading Your Product'}/>}
       <div className="mt-2 mx-md-5">
         <PgIndicator pgName={"Upload Product"} />

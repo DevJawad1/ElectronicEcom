@@ -1,0 +1,22 @@
+.display-img{
+    height:480px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.gallery-img{
+    height: 95px;
+    width: 110px;
+    object-fit: contain;
+}
+
+.selectedPic{
+    border: 1px solid #5CAF90;
+}
+.text-style{
+    color:#808080;
+    font-size: 14.5px;
+}
+.text-style ul{
+    line-height: 2.5;
+}

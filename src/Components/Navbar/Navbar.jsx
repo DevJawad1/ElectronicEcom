@@ -109,13 +109,32 @@
 
 // import logo from "../Assets/Img/Logo.png"; // Update with your logo path
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Search, User, Heart, ShoppingBag } from "lucide-react";
 import "./Navbar.css";
 import logo from '../Assets/Img/Logo (3).png'
+import axios from "axios";
+import { toast } from "react-toastify";
 
-export const Navbar = () => {
+export const Navbar = ({userId, reload}) => {
+  const [myCarts, setMyCarts] = useState([])
+
+    const getcart=async()=>{
+        try {
+            const response = await axios.post("https://electrobackend-dbup.onrender.com/user/cart", {buyer:userId})
+            console.log(response.data)
+            if(response.data.status){
+                setMyCarts(response.data.cart)
+            }
+        } catch (error) {
+            console.log(error)
+            toast.error(error.message)
+        }
+    }
+    useEffect(()=>{
+      getcart()
+    },[reload])
   return (
     <div className="shadow-sm bg-white position-relative" style={{zIndex:"1"}}>
       <div className='header-one'></div>
@@ -197,8 +216,8 @@ export const Navbar = () => {
           <Link to="#" className="nav-icon d-flex gap-1">
             <Heart size={30} /> <span>Wishlist <br /> <b>3-ITEMS</b></span>
           </Link>
-          <Link to="#" className="nav-icon d-flex gap-1">
-            <ShoppingBag size={30} /> <span>Cart <br /> <b>3-ITEMS</b></span>
+          <Link to="/myCart" className="nav-icon d-flex gap-1">
+            <ShoppingBag size={30} /> <span>Cart <br /> <b>{myCarts.length}-ITEMS</b></span>
           </Link>
         </div>
       </div>
