@@ -11,7 +11,7 @@ const CategoryDisp = ({ onSelectChange, categoryName }) => {
     useEffect(() => {
         const handleScroll = () => {
             // Check if the scroll position is beyond a certain point (e.g., 200px)
-            if (window.scrollY > 320) {
+            if (window.scrollY > 320 ) {
                 setIsFixed(true);
             } else {
                 setIsFixed(false);
@@ -126,11 +126,11 @@ const CategoryDisp = ({ onSelectChange, categoryName }) => {
 
     return (
         <div>
-            <div className="border h-100 rounded p-3 pt-3 d-none d-md-block" style={{ position: isFixed ? "fixed" : "", top: isFixed ? '2%' : '', width: isFixed ? '335px' : '', zIndex: '1' }}>
+            <div className={`border rounded p-3 pt-3 d-none d-md-block ${isFixed && categoryName?"bg-light":""}`} style={{ position: isFixed ? "fixed" : "", top: isFixed ? '2%' : '', width: isFixed && !categoryName ? '330px' : '307px', zIndex: '1',  height: "100vh"}}>
                 <h6 className='px-2 border-bottom' style={{ height: "40px", color: "#5CAF90" }}>Category</h6>
                 <div className="mt-3">
                     {Object.entries(sortedCategory).map(([catKey, items]) => (
-                        <div key={catKey}>
+                        <div key={catKey} className={` ${categoryName && getTitle(catKey)!==categoryName?"d-nne":""}`}>
                             <h6 className='mt-1 text-secondary' style={{ fontSize: "15px" }}>{getTitle(catKey)}</h6>
                             <div style={{ lineHeight: "3.5" }}>
                                 {items.map((item, idx) => (

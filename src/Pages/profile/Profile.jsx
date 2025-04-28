@@ -150,7 +150,7 @@ export default function Profile() {
                                         </div>
                                         <div className="mb-4">
                                             <div className="text-secondary">Business Name</div>
-                                            <div className="fs-5 fw-bold" style={{textTransform:"uppercase"}}>{userDetails.businessName || 'Loading...'}</div>
+                                            <div className="fs-5 fw- bold" style={{textTransform:"uppercase"}}>{userDetails.businessName || 'Loading...'}</div>
                                         </div>
                                         <div>
                                             <div className="text-secondary">Office Address</div>

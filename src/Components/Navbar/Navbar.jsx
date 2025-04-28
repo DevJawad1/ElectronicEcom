@@ -119,7 +119,7 @@ import { toast } from "react-toastify";
 
 export const Navbar = ({userId, reload}) => {
   const [myCarts, setMyCarts] = useState([])
-
+  const [myWishList, setMyWishList] = useState([])
     const getcart=async()=>{
         try {
             const response = await axios.post("https://electrobackend-dbup.onrender.com/user/cart", {buyer:userId})
@@ -134,7 +134,21 @@ export const Navbar = ({userId, reload}) => {
     }
     useEffect(()=>{
       getcart()
+      getLike()
     },[reload])
+
+    const getLike = async()=>{
+      try {
+        const response = await axios.post("https://electrobackend-dbup.onrender.com/user/wishlist", {buyer:userId})
+        console.log(response.data)
+        if(response.data.status){
+          setMyWishList(response.data.cart)
+        }
+    } catch (error) {
+        console.log(error)
+        // toast.error("Error")
+    }
+    }
   return (
     <div className="shadow-sm bg-white position-relative" style={{zIndex:"1"}}>
       <div className='header-one'></div>
@@ -214,7 +228,7 @@ export const Navbar = ({userId, reload}) => {
             <User size={30} /> <span>Account <br /> <b>LOGIN</b></span>
           </Link>
           <Link to="#" className="nav-icon d-flex gap-1">
-            <Heart size={30} /> <span>Wishlist <br /> <b>3-ITEMS</b></span>
+            <Heart size={30} /> <span>Wishlist <br /> <b>{myWishList.length}-ITEMS</b></span>
           </Link>
           <Link to="/myCart" className="nav-icon d-flex gap-1">
             <ShoppingBag size={30} /> <span>Cart <br /> <b>{myCarts.length}-ITEMS</b></span>

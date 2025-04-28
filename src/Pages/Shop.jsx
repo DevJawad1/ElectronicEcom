@@ -8,6 +8,7 @@ import { toast } from 'react-toastify'
 import { MapPin, Star } from 'lucide-react'
 import './shop.css'
 import { useNavigate } from 'react-router-dom'
+import ProductDisp from '../Components/ProductDisp'
 const Shop = ({userId}) => {
   const [latestPRD, setLatestPRD] = useState([])
   const [selectedCategories, setSelectedCategories] = useState([])
@@ -39,7 +40,7 @@ const Shop = ({userId}) => {
       <Navbar userId={userId}/>
       <PgIndicator pgName={"Shop Page"} />
       <div className="mt-3 d-md-flex">
-        <div className="category-box col-3 position-relative" style={{ paddingLeft: "5px", }}>
+        <div className="category-box col-3" style={{ paddingLeft: "5px", }}>
           <CategoryDisp onSelectChange={handleCategorySelection} />
         </div>
 
@@ -65,38 +66,7 @@ const Shop = ({userId}) => {
                     {selectedCategories.map((item, idx) => (
                       <div key={idx} className={`${tit.category == item.category ? "d-flex flex-wrap " : "d-none"} px-md-4 px-1`}>
                         {item.items.map((product, i) => (
-                          <div className="col-md-3 col-6 px-1 px-md-1" onClick={()=>(localStorage.setItem('product', product._id), navigate('/productPage'))}>
-                            <div className="shadow-sm border bg-white rounded mt-md-3 mt-2">
-                              <img
-                                src={product.image[0]}
-                                alt={product.productTit}
-                                className="card-img-top  "
-                              />
-                              <div className="card-body p-2 pt-3">
-                                <h6 className="text-muted" style={{ fontSize: "13px", fontWeight: "400" }}>{product.brand || 'Unknown Brand'}</h6>
-                                <h5 className="card-title text-secondary mt-1" style={{ fontSize: "15px" }}>{product.productTit}</h5>
-                                <div className="d-flex mt-4">
-                                  {Array.from({ length: 5 }, (_, index) => (
-                                    <Star
-                                      key={index}
-                                      size={14}
-                                      className={`me-1 ${index < product.rating ? "text-warning" : "text-secondary"}`}
-                                      fill={index < product.rating ? "#FACC15" : "grey"}
-                                    />
-                                  ))}
-                                </div>
-                                <div className="d-flex align-items-center justify-content-between mt-1">
-                                  <p className="card-text font-weight-bold text-dark mt-2 fw-bold" style={{ color: "#4B5966" }}>
-                                    ₦{product.price.toLocaleString()}
-                                  </p>
-                                  <p className="text-muted d-flex align-items-center" style={{ fontSize: "10px" }}>
-                                    <MapPin size={14} className="me-1" />
-                                    {product.address || 'Unknown'}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                          <ProductDisp product={product}/>
                         ))}
                       </div>
                     ))}

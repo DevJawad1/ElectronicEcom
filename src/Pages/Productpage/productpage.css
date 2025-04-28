@@ -20,3 +20,13 @@
 .text-style ul{
     line-height: 2.5;
 }
+.productpage-prdBox{
+    width: 20vw;
+}
+
+
+@media (max-width:600px) {
+    .productpage-prdBox{
+        width: 50vw;
+    }
+}
