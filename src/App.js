@@ -12,6 +12,7 @@ import axios from 'axios'
 import MyProduct from './Pages/MyProducts/MyProduct';
 import Productpage from './Pages/Productpage/Productpage';
 import Cart from './Pages/cartPage/Cart';
+import ChatPage from './Pages/chat/ChatPage';
 function App() {
   const userId = localStorage.getItem('ElectroUserID')
 
@@ -42,6 +43,7 @@ function App() {
           <Route path="/myProducts" element={<MyProduct userId={userId}/>} />
           <Route path="/productPage" element={<Productpage userId={userId}/>} />
           <Route path="/myCart" element={<Cart userId={userId}/>} />
+          <Route path="/myChat" element={<ChatPage userId={userId}/>} />
         </Routes>
       </>
     </Router>

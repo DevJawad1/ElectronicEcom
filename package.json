@@ -17,6 +17,7 @@
     "axios": "^1.8.4",
     "cloudinary": "^2.6.0",
     "dotenv": "^16.5.0",
+    "firebase": "^11.6.1",
     "lucide-react": "^0.486.0",
     "react": "^19.0.0",
     "react-content-loader": "^7.0.2",

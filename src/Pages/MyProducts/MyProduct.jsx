@@ -12,23 +12,36 @@ const MyProduct = ({userId}) => {
     const userProduct = async()=>{
         try {
           setloading(true)
-          const response = await axios.post('https://electrobackend-dbup.onrender.com/user/getUserProduct', {userId})  
+          const response = await axios.post('https://electrobackend-dbup.onrender.com/user/getUserProduct', {userId})                                            
           console.log(response)
           setmyProduct(response.data.products)
           setloading(false)
         } catch (error) {
           console.log(error)
           
+        }finally{
+          setloading(false)
         }
       }
     
     useEffect(()=>{
         userProduct()
     }, [])
+
+    const editPrd= async()=>{
+      try{
+        
+      }catch(err){
+
+      }finally{
+  
+      }
+    }
+    
   return (
     <div>
       <Navbar userId={userId}/>
-      {!myProduct.length>0 && <FullPageLoader msg={'Getting your Products'}/>}
+      {loading>0 && <FullPageLoader msg={'Getting your Products'}/>}
       <div className="mt-2 mx-md-5">
         <PgIndicator pgName={"My Products"} />
       </div>
@@ -66,7 +79,7 @@ const MyProduct = ({userId}) => {
           </div>
         </div>
         :
-        <NoProductFound msg={'No product in your store'}/>
+        <NoProductFound msg={'No product in your store'} page={'/upload'}/>
       }
     </div>
   )

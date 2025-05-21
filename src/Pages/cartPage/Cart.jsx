@@ -89,10 +89,12 @@ const Cart = ({ userId }) => {
               {myCarts.map((product) => (
                 <div key={product._id} className="col-md-2 col-6 cart-box-height px-1 px-md-1">
                   <div className="shadow border bg-white rounded mt-md-3 mt-2">
-                    <div 
-                    onClick={()=>{deleteCart(product._id)}}
-                    className="position-absolute bg-danger text-white d-flex align-items-center justify-content-center shadow-sm" style={{width:"35px", height:"35px", borderRadius:"50%"}}>
-                      <Trash size={20}/>
+                    <div className="p-1">
+                      <div 
+                      onClick={()=>{deleteCart(product._id)}}
+                      className="position-absolute bg-danger text-white d-flex align-items-center justify-content-center shadow-sm" style={{width:"35px", height:"35px", borderRadius:"50%"}}>
+                        <Trash size={20}/>
+                      </div>
                     </div>
                     <img
                       src={product.image[0]}

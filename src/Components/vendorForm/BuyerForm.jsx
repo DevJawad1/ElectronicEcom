@@ -4,12 +4,14 @@ import axios from "axios";
 import logo from "../Assets/Img/Logo (3).png";
 import { useNavigate } from 'react-router-dom';
 import {Link} from 'react-router-dom'
+import { Eye } from 'lucide-react';
 const BuyerForm = () => {
   const navigate = useNavigate();
   const [loading, setloading] = useState(false)
+  const [psType, setpsType] = useState('password')
     const [formData, setFormData] = useState({
         fullName: "",
-        businessName: "",
+        businessName: "empty",
         email: "",
         phone: "",
         address: "",
@@ -152,23 +154,35 @@ const BuyerForm = () => {
 
               <div className="col-md-6 px-md-3 mt-md-4">
                 <span>Country*</span><br />
-                <input type="text" name="country" 
-                  className="rounded w-100 mt-1 px-2" 
-                  style={{ height: "37px", border: "1px solid #E9E9E9", fontSize: "13px" }} 
-                  placeholder="Enter your Post Code" 
-                  onChange={handleChange}
-                />
+                <div style={{border:"1px solid #E9E9E9"}} className='rounded d-flex align-items-center '>
+                  <input type="text" name="country" 
+                    className="rounded w-100 px-2" 
+                    style={{ height: "37px", border: "none", fontSize: "13px" }} 
+                    placeholder="Enter your Post Code" 
+                    onChange={handleChange}
+                  />
+                  
+                </div>
                 <small className="text-danger">{errors.country}</small>
               </div>
 
               <div className="col-md-6 px-md-3 mt-md-4">
                 <span>Password*</span><br />
-                <input type="text" name="password" 
-                  className="rounded w-100 mt-1 px-2" 
-                  style={{ height: "37px", border: "1px solid #E9E9E9", fontSize: "13px" }} 
+                <div style={{border:"1px solid #E9E9E9"}} className='rounded d-flex align-items-center '>
+
+                <input type={psType} name="password" 
+                  className="rounded w-100 px-2" 
+                  style={{ height: "37px", border: "none", outline:"none", fontSize: "13px" }} 
                   placeholder="Enter your Password" 
                   onChange={handleChange}
                 />
+                <Eye className='text-secondary px-2' style={{cursor:"pointer"}} size={35} 
+                onClick={()=>{
+                  psType=="text"?setpsType("password"):setpsType("text")
+                }}
+                />
+                </div>
+
                 <small className="text-danger">{errors.region}</small>
               </div>
             </div>

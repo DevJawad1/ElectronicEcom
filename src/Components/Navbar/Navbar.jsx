@@ -111,7 +111,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Search, User, Heart, ShoppingBag } from "lucide-react";
+import { Search, User, Heart, ShoppingBag, Store, Package, Package2 } from "lucide-react";
 import "./Navbar.css";
 import logo from '../Assets/Img/Logo (3).png'
 import axios from "axios";
@@ -123,7 +123,7 @@ export const Navbar = ({userId, reload}) => {
     const getcart=async()=>{
         try {
             const response = await axios.post("https://electrobackend-dbup.onrender.com/user/cart", {buyer:userId})
-            console.log(response.data)
+            // console.log(response.data)
             if(response.data.status){
                 setMyCarts(response.data.cart)
             }
@@ -140,9 +140,10 @@ export const Navbar = ({userId, reload}) => {
     const getLike = async()=>{
       try {
         const response = await axios.post("https://electrobackend-dbup.onrender.com/user/wishlist", {buyer:userId})
-        console.log(response.data)
+        // console.log(response.data)
         if(response.data.status){
           setMyWishList(response.data.cart)
+          getcart()
         }
     } catch (error) {
         console.log(error)
@@ -253,9 +254,21 @@ export const Navbar = ({userId, reload}) => {
 
   <div className="nav-item dropdown">
     <Link className="nav-link dropdown-toggle" to="#" data-bs-toggle="dropdown">Products</Link>
-    <div className="dropdown-menu">
-      <div><Link className="dropdown-item" to="/shop">shop</Link></div>
-      <div><Link className="dropdown-item" to="/myProducts">myProducts</Link></div>
+    <div className="dropdown-menu shadow p-1">
+      <div>
+        <Link className="dropdown-item d-flex gap-2 align-items-center rounded px-2" to="/shop" style={{backgroundColor:"#D1E7DD"}}>
+         <div className="rounded shadow-sm bg-white p-1 col-md-3 text-center">
+          <Store  size={20}/> 
+         </div>
+         <span className="fw-semibold">Shop</span>
+      </Link></div>
+      <div>
+        <Link className="dropdown-item d-flex gap-2 align-items-center rounded px-2 mt-1" to="/myProducts" style={{backgroundColor:"#D1E7DD"}}>
+        < div className="rounded shadow-sm bg-white p-1 col-md-3 text-center">
+            <Package2 size={20}/>
+          </div>
+        <span className='fw-semibold'>My Products</span>
+        </Link></div>
     </div>
   </div>
 
