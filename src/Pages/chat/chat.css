@@ -1,6 +1,22 @@
 .chatter-profile{
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     background-color: #0DC029;
+}
+
+@media (max-width:600px) {
+    /* body{
+        overflow-x: hidden !important;
+    } */
+    .chat-page{
+
+    }
+
+    .collapse{
+        display: none;
+    }
+    .appear{
+        display: block;
+    }
 }

@@ -3,9 +3,10 @@ import { collection, addDoc, onSnapshot, serverTimestamp, query, orderBy } from 
 import { db } from "../firebase";
 import axios from 'axios'
 import { toast } from "react-toastify";
+import { ArrowLeft, ArrowRight, Plane, Send, SendHorizontal } from "lucide-react";
 const getChatId = (a, b) => [a, b].sort().join("__");
 
-const ChatWindow = ({ selectedUser, currentUser }) => {
+const ChatWindow = ({ selectedUser, currentUser, onSelectEM }) => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [activeChatId, setActiveChatId] = useState(null);
@@ -63,7 +64,7 @@ const ChatWindow = ({ selectedUser, currentUser }) => {
     const fetchBusinessNames = async () => {
       const names = {};
         try {
-          const res = await axios.post("http://localhost:2500/user/storeAddress", { 
+          const res = await axios.post("https://electrobackend-dbup.onrender.com/user/storeAddress", { 
             owner: selectedUser,
           });
           setBusinessNames(res.data.vendor.businessName!=="empty"?res.data.vendor.businessName.toLowerCase():res.data.vendor?.fullName.toLowerCase())
@@ -78,7 +79,7 @@ const ChatWindow = ({ selectedUser, currentUser }) => {
   }, [selectedUser]);
 
   const sendMessage = async (e) => {
-    const chattersSaver = await axios.post('http://localhost:2500/user/chatter', {chatter1:currentUser, chatter2:selectedUser})
+    const chattersSaver = await axios.post('https://electrobackend-dbup.onrender.com/user/chatter', {chatter1:currentUser, chatter2:selectedUser, purpose:""})
     try {
       if(chattersSaver.data.save){
 
@@ -113,9 +114,14 @@ const ChatWindow = ({ selectedUser, currentUser }) => {
   const recieverClass='rounded mt-2 d-flex'
 
   return (
-    <div style={{ width: "70%", padding: 10 }}>
-      <h4>Chat with  <span style={{textTransform:"capitalize"}}>{businessNames}</span></h4>
-      <div style={{ height: "550px", overflowY: "auto", border: "1px solid #ddd", padding: 10 }}>
+    <div style={{ padding: 10 }}>
+      <div className="d-flex gap-2">
+        <div className="shadow-sm bg-light p-1 d-md-none" onClick={() => onSelectEM("chatPG")}>
+          <ArrowLeft size={20}/>
+        </div>
+        <h5>Chat with  <span style={{textTransform:"capitalize"}}>{businessNames}</span></h5>
+      </div>
+      <div style={{ height: "550px", overflowY: "auto", border: "1px solid #ddd", padding: 10 }} className="mt-2">
         <div>
           
         </div>
@@ -135,13 +141,15 @@ const ChatWindow = ({ selectedUser, currentUser }) => {
       
       }
       </div>
-      <div>
+      <div className="bg-light d-flex mt-2 p-3" style={{marginBottom:"30px"}}>
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type message..."
+          className="bg-transparent border border-0 w-100"
+          style={{outline:"0"}}
         />
-        <button onClick={sendMessage}>Send</button>
+        <button  className="btn" onClick={sendMessage}><SendHorizontal/> </button>
       </div>
     </div>
   );

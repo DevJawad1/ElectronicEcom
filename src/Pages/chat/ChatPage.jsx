@@ -22,29 +22,34 @@ import {
 // } from 'firebase/firestore';
 import { db } from '../../firebase';
 import './chat.css'
+import FullPageLoader from '../../Components/Loader/FullLoader';
 
 const ChatPage = ({ userId }) => {
   const [currentUser, setcurrentUser] = useState('');
   const [users, setusers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
-
+  const [loading, setLoading] = useState(false)
   // Step 1: Get current user from backend
   useEffect(() => {
     const currentUserName = async () => {
       try {
-        const res = await axios.post('http://localhost:2500/user/name', { user: userId });
+        const res = await axios.post('https://electrobackend-dbup.onrender.com/user/name', { user: userId });
         const name = res.data.name;
         setcurrentUser(name);
         // console.log("✅ Current user:", name);
   
         // Fetch sellers from backend
         try {
-          const sellerRes = await axios.post('http://localhost:2500/user/chatterList', { user: userId });
+
+          setLoading(true)
+          const sellerRes = await axios.post('https://electrobackend-dbup.onrender.com/user/chatterList', { user: userId });
           console.log("🛍️ Sellers from backend:", sellerRes.data);
 
           setusers(sellerRes.data.sellers);
         } catch (sellerErr) {
           toast.error("Error getting sellers: " + sellerErr.message);
+        }finally{
+          setLoading(false)
         }
   
         // Now fetch chat users from Firebase after currentUser is set
@@ -80,15 +85,28 @@ const ChatPage = ({ userId }) => {
   }, [userId]);
   
 
+  const [collapseNm, setcollapseNm] = useState('chatPG')
+
+
+  const changeVisible=(element)=>{
+    setcollapseNm(element)
+  }
   return (
     <div>
       <Navbar />
       <PgIndicator pgName={'Chat'} />
+      {loading && <FullPageLoader msg={'Getting Your Chat'}/>}
       {users.length > 0 ? (
-        <div style={{ display: 'flex', height: '100vh' }}>
-          <ChatList users={users} onSelectUser={setSelectedUser} />
+        <div style={{ display: 'flex', height: '100vh' }} className='chat-page'>
+          <div className={`chat-list col-md-4 col-12 border  ${collapseNm=="chatLT"?"collapse":null}`} onClick={()=>{
+            changeVisible('chatLT')
+          }}>
+            <ChatList users={users} onSelectUser={setSelectedUser} userId={userId}/>
+          </div>
           {selectedUser ? (
-            <ChatWindow currentUser={userId} selectedUser={selectedUser} />
+            <div className={`chat-window col-md-8 col-12 ${collapseNm=="chatPG"?"collapse":null}`}>
+              <ChatWindow currentUser={userId} selectedUser={selectedUser} onSelectEM={setcollapseNm}/>
+            </div>
           ) : (
             <div style={{ padding: 20 }}>Select a chat to start messaging</div>
           )}

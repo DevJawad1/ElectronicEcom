@@ -111,7 +111,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Search, User, Heart, ShoppingBag, Store, Package, Package2 } from "lucide-react";
+import { Search, User, Heart, ShoppingBag, Store, Package, Package2, BellElectric, Shirt } from "lucide-react";
 import "./Navbar.css";
 import logo from '../Assets/Img/Logo (3).png'
 import axios from "axios";
@@ -246,26 +246,39 @@ export const Navbar = ({userId, reload}) => {
   
   <div className="nav-item dropdown">
     <Link className="nav-link dropdown-toggle" to="#" data-bs-toggle="dropdown">Categories</Link>
-    <div className="dropdown-menu">
-      <div><Link className="dropdown-item" to="#">Electronics</Link></div>
-      <div><Link className="dropdown-item" to="#">Appliances</Link></div>
+    <div className="dropdown-menu" style={{fontSize:"13px"}}>
+      <div>
+       <Link className="dropdown-item d-flex gap-2 align-items-center rounded px-2" to="/shop" >
+         <div className="rounded shadow-sm bg-white p-1 col-md-3 text-center">
+          <BellElectric size={17}/> 
+         </div>
+         <span className="fw-semibold">Electronics</span>
+      </Link></div>
+      <div>
+       <Link className="dropdown-item d-flex gap-2 align-items-center rounded px-2" to="/shop" >
+         <div className="rounded shadow-sm bg-white p-1 col-md-3 text-center">
+          <Shirt size={17}/> 
+         </div>
+         <span className="fw-semibold">Clothing </span>
+      </Link></div>
+      
     </div>
   </div>
 
   <div className="nav-item dropdown">
     <Link className="nav-link dropdown-toggle" to="#" data-bs-toggle="dropdown">Products</Link>
-    <div className="dropdown-menu shadow p-1">
+    <div className="dropdown-menu shadow p-1" style={{fontSize:"13px"}}>
       <div>
-        <Link className="dropdown-item d-flex gap-2 align-items-center rounded px-2" to="/shop" style={{backgroundColor:"#D1E7DD"}}>
+        <Link className="dropdown-item d-flex gap-2 align-items-center rounded px-2" to="/shop" style={{backgroundColor:"D1E7DD"}}>
          <div className="rounded shadow-sm bg-white p-1 col-md-3 text-center">
-          <Store  size={20}/> 
+          <Store  size={17}/> 
          </div>
          <span className="fw-semibold">Shop</span>
       </Link></div>
       <div>
-        <Link className="dropdown-item d-flex gap-2 align-items-center rounded px-2 mt-1" to="/myProducts" style={{backgroundColor:"#D1E7DD"}}>
-        < div className="rounded shadow-sm bg-white p-1 col-md-3 text-center">
-            <Package2 size={20}/>
+        <Link className="dropdown-item d-flex gap-2 align-items-center rounded px-2 mt-1" to="/myProducts" style={{backgroundColor:"D1E7DD", }}>
+          <div className="rounded shadow-sm bg-white p-1 col-md-3 text-center">
+            <Package2 size={17}/>
           </div>
         <span className='fw-semibold'>My Products</span>
         </Link></div>
